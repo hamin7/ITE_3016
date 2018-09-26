@@ -21,5 +21,4 @@ Tomcat started.
 hamins-MacBook-Pro:~ hamin$
 
 
-
 // https://localhost:8080/
