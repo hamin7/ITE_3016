@@ -90,7 +90,7 @@ uniform_kind varchar(3) not null,
 uniform_title varchar(100) not null,
 uniform_price int not null,
 uniform_count smallint not null,
-author varchar(40) not null,
+team varchar(40) not null,
 launch_com varchar(30) not null,
 launch_date varchar(15) not null,
 uniform_image varchar(16) default 'nothing.jpg',
@@ -100,6 +100,7 @@ reg_date datetime not null
 );
 
 desc uniform;
+drop table uniform;
 
 create table bank(
 account varchar(30) not null,
