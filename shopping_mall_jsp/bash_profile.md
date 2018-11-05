@@ -1,0 +1,25 @@
+JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home
+PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=.:$JAVA_HOME/lib/tools.jar
+export JAVA_HOME
+export PATH
+export CLASSPATH
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- INSERT --
