@@ -14,11 +14,11 @@
 %>
 <html>
 <head>
-<title>Uniform Manage</title>
+<title>책관리</title>
 </head>
 <body>
   <form method="post" action="logon/managerLogout.jsp">
-	 <b>During management.. </b><input type="submit" value="logout">	
+	 <b>관리작업중.. </b><input type="submit" value="로그아웃">	
   </form>
     
    <table>

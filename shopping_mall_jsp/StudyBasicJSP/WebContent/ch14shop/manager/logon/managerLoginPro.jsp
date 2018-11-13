@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ch14.uniformshop.master.ShopUniformDBBean"%>
+<%@ page import="ch14.bookshop.master.ShopBookDBBean"%>
 
 <% request.setCharacterEncoding("utf-8");%>
 
@@ -8,7 +8,7 @@
     String id = request.getParameter("id");
 	String passwd  = request.getParameter("passwd");
 	
-	ShopUniformDBBean manager = ShopUniformDBBean.getInstance();
+	ShopBookDBBean manager = ShopBookDBBean.getInstance();
     int check = manager.managerCheck(id,passwd); 
 
 	if(check == 1){
