@@ -17,6 +17,8 @@
          아이디:  <input type="text" name="id" size="15" maxlength="50">
          비밀번호:  <input type="password" name="passwd" size="15" maxlength="16">
     <input type="submit" name="Submit" value="로그인">
+    <input type="button" value="회원가입"
+    onclick="location.href='insertmemberForm.jsp'">
    </form>
    <font color="red">* 반드시 로그인을 하셔야 쇼핑을 하실 수 있습니다.*</font>    
  <%}else{%>
