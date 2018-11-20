@@ -27,9 +27,9 @@
     <a href="../shopping/buyList.jsp">구매목록보기</a>&nbsp;
       
     <br><br> 
-    <b><%=session.getAttribute("id")%></b> 님 , 즐거운 쇼핑시간이 되세요.
+    <b><%=session.getAttribute("id")%></b> 님 , Have a good time!.
        
-    <input type="button"  value="로그아웃" 
+    <input type="button"  value="Logout" 
         onclick="javascript:window.location='../shopping/logout.jsp'">
      
      
