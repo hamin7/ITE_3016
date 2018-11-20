@@ -10,24 +10,24 @@
 <%
  try{
    if(session.getAttribute("id")==null){%>
-   <a href="../shopping/list.jsp?book_kind=all">전체목록보기</a>&nbsp;
+   <a href="../shopping/list.jsp?book_kind=all">See all lists</a>&nbsp;
    <br>
       
    <form name="inform" method="post" action="loginPro.jsp">
-         아이디:  <input type="text" name="id" size="15" maxlength="50">
-         비밀번호:  <input type="password" name="passwd" size="15" maxlength="16">
-    <input type="submit" name="Submit" value="로그인">
-    <input type="button" value="회원가입"
+         ID:  <input type="text" name="id" size="15" maxlength="50">
+         Password:  <input type="password" name="passwd" size="15" maxlength="16">
+    <input type="submit" name="Submit" value="Login">
+    <input type="button" value="Register"
     onclick="location.href='insertmemberForm.jsp'">
    </form>
-   <font color="red">* 반드시 로그인을 하셔야 쇼핑을 하실 수 있습니다.*</font>    
+   <font color="red">* You need to login.*</font>    
  <%}else{%>
-    <a href="../shopping/list.jsp?book_kind=all">전체목록보기</a>&nbsp;
-    <a href="../shopping/cartList.jsp?book_kind=all">장바구니보기</a>&nbsp;
-    <a href="../shopping/buyList.jsp">구매목록보기</a>&nbsp;
+    <a href="../shopping/list.jsp?book_kind=all">See all list</a>&nbsp;
+    <a href="../shopping/cartList.jsp?book_kind=all">See the cart</a>&nbsp;
+    <a href="../shopping/buyList.jsp">See the Buy list</a>&nbsp;
       
     <br><br> 
-    <b><%=session.getAttribute("id")%></b> 님 , Have a good time!.
+    <b><%=session.getAttribute("id")%></b> , Have a good time.
        
     <input type="button"  value="Logout" 
         onclick="javascript:window.location='../shopping/logout.jsp'">
