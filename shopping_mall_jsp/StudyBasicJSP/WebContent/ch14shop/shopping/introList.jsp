@@ -4,7 +4,7 @@
 <%@ page import = "ch14.bookshop.master.ShopBookDataBean" %>
 <%@ page import = "java.text.NumberFormat" %>
 
-<%@ include file="../etc/color.jspf"%> 
+<%@ include file="../etc/color.jspf"%>
 
 <html>
 <head>
@@ -12,63 +12,77 @@
 <link href="../etc/style.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="<%=bodyback_c%>">
-<h3>신간소개</h3>
+<h3 style="font-size:30px">New Arrival</h3>
 <%
   ShopBookDataBean bookLists[] = null;
   int number =0;
   String book_kindName="";
-  
+
   ShopBookDBBean bookProcess = ShopBookDBBean.getInstance();
   for(int i=1; i<=3;i++){
 	  bookLists = bookProcess.getBooks(i+"00",3);
-     
+
      if(bookLists[0].getBook_kind().equals("100")){
-	      book_kindName="문학";
+	      book_kindName="EPL";
      }else if(bookLists[0].getBook_kind().equals("200")){
-	      book_kindName="외국어";  
+	      book_kindName="La Liga";
      }else if(bookLists[0].getBook_kind().equals("300")){
-	      book_kindName="컴퓨터";
+	      book_kindName="Serie A";
      }
 %>
-  <br><font size="+1"><b><%=book_kindName%> 분류의 신간목록: 
-  <a href="list.jsp?book_kind=<%=bookLists[0].getBook_kind()%>">더보기</a>
-  </b></font>
-<%             
+<div style="display:block;">
+  <br><font size="+1"><b><%=book_kindName%> 's new product:
+  <a href="list.jsp?book_kind=<%=bookLists[0].getBook_kind()%>">more</a>
+  </b></font></div>
+<%
   for(int j=0;j<bookLists.length;j++){
 %>
-    <table > 
-      <tr height="30" bgcolor="<%=value_c%>"> 
-        <td rowspan="4"  width="100">
+<div style="float:left;width:33%;">
+    <table style="border: hidden;">
+      <tr height="200" bgcolor="<%=value_c%>">
+        <td rowspan="1"  width="200">
           <a href="bookContent.jsp?book_id=<%=bookLists[j].getBook_id()%>&book_kind=<%=bookLists[0].getBook_kind()%>">
-             <img src="../../imageFile/<%=bookLists[j].getBook_image()%>"  
-             border="0" width="60" height="90"></a></td> 
-       <td width="350"><font size="+1"><b>
-          <a href="bookContent.jsp?book_id=<%=bookLists[j].getBook_id()%>&book_kind=<%=bookLists[0].getBook_kind()%>">
-              <%=bookLists[j].getBook_title() %></a></b></font></td> 
-       <td rowspan="4" width="100">
-          <%if(bookLists[j].getBook_count()==0){ %>
-              <b>일시품절</b>
-          <%}else{ %>
-               &nbsp;
-          <%} %>
+             <img src="../../imageFile/<%=bookLists[j].getBook_image()%>"
+             border="0" width="190" height="190"></a></td>
+     </tr>
+    <tr height="30" bgcolor="<%=value_c%>">
+       <td width="200"><font size="+1"><b>
+       <a href="bookContent.jsp?book_id=<%=bookLists[j].getBook_id()%>&book_kind=<%=bookLists[0].getBook_kind()%>">
+       <%=bookLists[j].getBook_title() %>
+       </a>
+       </b>
+       </font>
        </td>
-     </tr>        
-     <tr height="30" bgcolor="<%=value_c%>"> 
-       <td width="350">출판사 : <%=bookLists[j].getPublishing_com()%></td> 
      </tr>
-     <tr height="30" bgcolor="<%=value_c%>"> 
-       <td width="350">저자 : <%=bookLists[j].getAuthor()%></td>
+     <tr height="30" bgcolor="<%=value_c%>">
+       <td width="200">Manufacturer : <%=bookLists[j].getPublishing_com()%></td>
      </tr>
-     <tr height="30" bgcolor="<%=value_c%>"> 
-       <td width="350">정가 :<%=NumberFormat.getInstance().format(bookLists[j].getBook_price())%>원<br>
-                판매가 : <b><font color="red">
+     <tr height="30" bgcolor="<%=value_c%>">
+       <td width="200">Team : <%=bookLists[j].getAuthor()%></td>
+     </tr>
+     <tr height="30" bgcolor="<%=value_c%>">
+       <td width="200">Original Price :<%=NumberFormat.getInstance().format(bookLists[j].getBook_price())%>won<br>
+                Sales Price : <b><font color="red">
        <%=NumberFormat.getInstance().format((int)(bookLists[j].getBook_price()*((double)(100-bookLists[j].getDiscount_rate())/100)))%>
-            </font></b>원</td> 
-     </tr> 
-     </table>
-     <br>
+            </font></b>won</td>
+     </tr>
+     <tr height="30" bgcolor="<%=value_c%>">
+       <td width="200">
+       <%if(bookLists[j].getBook_count()==0){ %>
+       <b>Temporally sold out</b>
+       <%}else{ %>
+       &nbsp;
+       <%} %>
+       </td>
+     </tr>
+     </table></div>
+     
 <%
   }
+%>
+<br>
+<br>
+<%
 }
 %>
 
